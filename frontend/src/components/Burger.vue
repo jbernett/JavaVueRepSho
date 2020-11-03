@@ -33,8 +33,8 @@ cursor: pointer;
 
 .burger-button {
 position: relative;
-height: 30px;
-width: 32px;
+height: 35px;
+width: 35px;
 display: block;
 z-index: 999;
 border: 0;

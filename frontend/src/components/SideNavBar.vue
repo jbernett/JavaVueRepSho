@@ -1,7 +1,9 @@
 <template>
-  <div>    
-    <Burger :isBurgerActive=isBurgerActive v-on:clickedBurger="clickedBurger()"></Burger>
-    <b-sidebar id="sidebar-no-header" aria-labelledby="sidebar-no-header-title" no-header shadow v-on:change="clickedBurger()">
+  <div>  
+    <div class="top-left">
+      <Burger :isBurgerActive=isBurgerActive v-on:clickedBurger="clickedBurger()"></Burger>
+    </div> 
+    <b-sidebar id="sidebar-no-header" :backdrop-variant="'secondary'" aria-labelledby="sidebar-no-header-title" no-header backdrop shadow v-on:change="clickedBurger()">
       <template #default="{ hide }">
         <div class="p-3">
           <h4 id="sidebar-no-header-title">Repsho</h4>
@@ -36,3 +38,10 @@ export default {
 }
 
 </script>
+<style scoped>
+.top-left {
+  float: left;
+  margin-top: 20px;
+  margin-left: 5px;
+}
+</style>
