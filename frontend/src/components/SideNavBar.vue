@@ -12,6 +12,9 @@
                 <b-nav-item to="/" exact exact-active-class="active"  @click="hide">Home</b-nav-item>
                 <b-nav-item to="/about" exact exact-active-class="active" @click="hide">About</b-nav-item>
                 <b-nav-item to="/ingredients" exact exact-active-class="active" @click="hide">Ingredients</b-nav-item>
+                <b-nav-item to="/profile" exact exact-active-class="active" @click="hide">Profile</b-nav-item>
+                <b-nav-item to="/login" exact exact-active-class="active" @click="hide">Login</b-nav-item>
+                <b-nav-item to="/register" exact exact-active-class="active" @click="hide">Register</b-nav-item>
             </b-nav>
           </nav>          
         </div>
