@@ -1,7 +1,18 @@
 <template>
   <div id="app">
     <div class="banner">
-      
+      <div v-if="!loggedIn" class="pt-2 pb-2 fr">
+        <b-button v-b-hover="handleRegisterHover" to="/register" class="mr-1 ml-2" variant="secondary" size="sm">
+            <b-icon v-if="isRegisterHovered" animation="throb" icon="pencil" scale="1.25"></b-icon>
+            <b-icon v-else icon="pencil" scale="1"></b-icon>
+            Register
+        </b-button>
+        <b-button v-b-hover="handleSignInHover" to="/login" class="mr-2 ml-1" variant="secondary" size="sm">
+            <b-icon v-if="isSignInHovered" animation="throb" icon="person-circle" scale="1.25"></b-icon>
+            <b-icon v-else icon="person-circle" scale="1"></b-icon>
+            Sign In
+        </b-button>
+      </div>
     </div>
     <div class="side-banner">
       <Sidebar :isBurgerActive=isBurgerActive v-on:clickedBurger="clickedBurger()"/>  
@@ -47,7 +58,14 @@ export default {
       isAboutHovered: false,
       isHomeHovered: false,
       isIngredientsHovered: false,
-      isRecipeHovered: false
+      isRecipeHovered: false,
+      isRegisterHovered: false,
+      isSignInHovered: false
+    }
+  },
+  computed: {
+    loggedIn() {
+      return this.$store.state.auth.status.loggedIn;
     }
   },
   methods: {
@@ -65,6 +83,12 @@ export default {
     },
     handleRecipeHover(hovered){
         this.isRecipeHovered = hovered;
+    },
+    handleRegisterHover(hovered){
+      this.isRegisterHovered = hovered;
+    },
+    handleSignInHover(hovered){
+      this.isSignInHovered = hovered
     }
   }
   
@@ -72,12 +96,22 @@ export default {
 </script>
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Georgia, sans-serif;;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
 }
+
+.btn {
+  box-shadow: 0px 3px 1px black, 0 5px 8px darkslategrey;
+}
+
+input {
+  border: 1px solid darkgray !important;
+  box-shadow: 1px 1px lightgrey;
+}
+
 .banner {
   width: 100%;
     height: 80px;
@@ -94,6 +128,10 @@ export default {
     float: left;
     position: absolute;
     border-right: 2px solid black;
+}
+
+.fr{
+  float: right;
 }
 
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div id="burger" :class="{ 'active' : BurgerIsActive }">
     <slot>
-      <b-button v-b-toggle.sidebar-no-header variant="dark" class="burger-button primary" title="Menu">
+      <b-button v-b-toggle.sidebar-no-header variant="dark" class="burger-button primary mt-2 mb-2 ml-0.5" title="Menu">
         <span class="burger-bar burger-bar--1"></span>
         <span class="burger-bar burger-bar--2"></span>
         <span class="burger-bar burger-bar--3"></span>
