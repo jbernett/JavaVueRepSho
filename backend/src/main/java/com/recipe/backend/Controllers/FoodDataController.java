@@ -1,6 +1,9 @@
 package com.recipe.backend.Controllers;
 
+import java.util.List;
+
 import com.recipe.backend.Services.FoodDataService;
+import com.recipe.backend.ViewModel.FoodDataIngredient;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +17,7 @@ public class FoodDataController {
     }
 
     @GetMapping("/getFoodDataIngredients")
-    String all() {
+    List<FoodDataIngredient> all() {
         return foodDataService.findAll();
     }
 }
