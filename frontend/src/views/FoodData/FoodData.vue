@@ -1,6 +1,6 @@
 <template>
   <div class="foodData">
-      hello
+    <input v-model="searchText" @keyup="searchForIngredients" />
   </div>
 </template>
 <script>
@@ -9,16 +9,22 @@ import api from "./FoodDataApi";
 export default {
   name: "FoodData",
   data() {
-    return {};
+    return {
+      searchText: "",
+    };
   },
-  created() {
-    this.getAllIngredients();
-  },
+  created() {},
   methods: {
     getAllIngredients() {
-      api.getAll().then((response) => {
-        console.log(response);
-      });
+      api.getAll().then(() => {});
+    },
+    searchForIngredients() {
+      if (this.searchText.length > 3) {
+        var term = this.searchText;
+        api.searchForIngredient(term).then((response) => {
+          console.log(response);
+        });
+      }
     },
   },
 };

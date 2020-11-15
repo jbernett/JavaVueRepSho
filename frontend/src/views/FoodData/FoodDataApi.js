@@ -11,5 +11,5 @@ const instance = axios.create({
   
 export default {   
   getAll: () => instance.get('getFoodDataIngredients', {transformResponse: [function (data) {return data? JSON.parse(data) : data;  }]}), 
-  
+  searchForIngredient: (term) => instance.post('searchFoodDataIngredients',  term , {transformResponse: [function (data) {return data? JSON.parse(data) : data;  }]})   
 }

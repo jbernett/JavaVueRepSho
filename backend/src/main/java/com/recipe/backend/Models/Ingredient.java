@@ -6,6 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,7 +22,13 @@ public class Ingredient {
   @Column(name = "ID")
   public Long id;  
 
-  @NonNull 
+  @Column(name = "MANUFACTURER")
+  public String manufacturer;
+
+  @Column(name = "FDC_ID")
+  public Integer fdcId;
+
+  @NotNull 
   @Column(name = "INGREDIENT_NAME")
   public String name;
 
@@ -29,10 +36,22 @@ public class Ingredient {
   @JoinColumn(name ="CATEGORY_ID")
   public IngredientCategory categoryID;
 
-  @Column(name = "IMAGE")
-  public String image;
+  @Column(name = "IMAGE_URL")
+  public String imageUrl;
 
   public void setName(String name){
     this.name = name;
+  }
+
+  public void setManufacturer(String manufacturer){
+    this.manufacturer = manufacturer;
+  }
+
+  public void setFdcId(Integer facId){
+    this.fdcId = facId;
+  }
+
+  public void setImage(String imageUrl){
+    this.imageUrl = imageUrl;
   }
 }
